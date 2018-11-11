@@ -12,7 +12,7 @@ public class University {
 
     public University(String name) {
         students = new ArrayList<Student>();
-	intern = new ArrayList<String>();
+	 intern = new ArrayList<String>();
         this.name = name;
     }
 
