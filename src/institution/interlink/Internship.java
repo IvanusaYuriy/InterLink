@@ -6,6 +6,7 @@ public class Internship {
     private String name;
     private Student student;
     private University university;
+    private float sum;
 
     public Internship(String name) {
         this.name = name;
@@ -16,13 +17,25 @@ public class Internship {
     }
 
     //lets take that those who has >= 3 level of knowledge are able to get internship
-    public String getStudents(University university) {
-        StringBuilder studentsWithOp = new StringBuilder("");
+    public void getStudents(University university) {
+    	for (Student var : university.students) {
+    		sum += var.getKnowledge().getLevel();
+    	}
         for (Student var : university.students) {
-            if(var.getKnowledge().getLevel() >= 3){
-                studentsWithOp.append(var.getName() + "\n");
+
+            if(var.getKnowledge().getLevel() >= sum/(university.students.size())){
+            	university.intern.add(var.getName());
+
+
             }
         }
-        return studentsWithOp.toString();
+    }
+
+    public void getIntern(University university) {
+    	Object[] peopleArray = university.intern.toArray();
+        for(Object person : peopleArray){
+
+            System.out.println(person);
+        }
     }
 }
